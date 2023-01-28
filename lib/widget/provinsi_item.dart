@@ -13,7 +13,9 @@ class ProvinsiItem extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DetailProvinsi(),
+              builder: (context) => DetailProvinsi(
+                provinsi: dataProvinsi,
+              ),
             ));
       },
       child: Container(
