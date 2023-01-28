@@ -29,8 +29,22 @@ class DetailProvinsi extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          RowGrid(),
-          RowGrid(),
+          RowGrid(
+            jumlahKasus1: provinsi.jumlahKasus.toString(),
+            jumlahKasus2: provinsi.jumlahSembuh.toString(),
+            namaKasus1: "Jumlah Kasus",
+            namaKasus2: "Jumlah Sembuh",
+            color1: Colors.red,
+            color2: Colors.green,
+          ),
+          RowGrid(
+            jumlahKasus1: provinsi.jumlahMeninggal.toString(),
+            jumlahKasus2: provinsi.jumlahDirawat.toString(),
+            namaKasus1: "Jumlah Meninggal",
+            namaKasus2: "Jumlah Dirawat",
+            color1: Colors.orange,
+            color2: Colors.blue,
+          ),
         ],
       ),
     );
