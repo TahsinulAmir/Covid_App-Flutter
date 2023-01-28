@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:covid_project/providers/data.dart';
+import 'package:covid_project/widget/provinsi_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,14 +23,17 @@ class ProvinsiScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return ListView.builder(
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 3 / 5,
+                ),
                 itemCount: dataCovid.dataProvinsi.length,
                 itemBuilder: (context, index) {
                   final data = dataCovid.dataProvinsi[index];
-                  return ListTile(
-                    title: Text(data.key!),
-                    subtitle: Text(data.jumlahKasus.toString()),
-                  );
+                  return ProvinsiItem(dataProvinsi: data);
                 },
               );
             }
