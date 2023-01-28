@@ -45,6 +45,30 @@ class DetailProvinsi extends StatelessWidget {
             color1: Colors.orange,
             color2: Colors.blue,
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Kelompok Umur",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Column(
+            children: provinsi.kelompokUmur!.map((data) {
+              return Card(
+                child: ListTile(
+                  title: Text('${data['key']} Tahun'),
+                  trailing: Text(
+                    data['doc_count'].toString(),
+                    style: TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              );
+            }).toList(),
+          )
         ],
       ),
     );
