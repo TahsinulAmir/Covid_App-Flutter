@@ -13,7 +13,24 @@ class Data with ChangeNotifier {
 
     if (response.statusCode == 200) {
       final List extractData = (jsonDecode(response.body))['list_data'];
-      print(extractData);
+
+      for (var data in extractData) {
+        dataProvinsi.add(
+          DataCovid(
+            key: data['key'],
+            docCount: data['doc_count'].toString(),
+            jumlahKasus: data['jumlah_kasus'],
+            jumlahSembuh: data['jumlah_sembuh'],
+            jumlahMeninggal: data['jumlah_meninggal'],
+            jumlahDirawat: data['jumlah_dirawat'],
+            jenisKelamin: data['jenis_kelamin'] as List,
+            kelompokUmur: data['kelompok_umur'] as List,
+            lokasi: data['lokasi'],
+            penambahan: data['penambahan'],
+          ),
+        );
+      }
+      print(dataProvinsi[0].key);
     }
   }
 }
