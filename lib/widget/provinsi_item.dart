@@ -8,7 +8,31 @@ class ProvinsiItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(dataProvinsi.key!),
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            dataProvinsi.key!,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text("Jumlah Kasus"),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            dataProvinsi.jumlahKasus.toString(),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -23,18 +23,21 @@ class ProvinsiScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else {
-              return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 3 / 5,
+              return Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                    childAspectRatio: 5 / 3,
+                  ),
+                  itemCount: dataCovid.dataProvinsi.length,
+                  itemBuilder: (context, index) {
+                    final data = dataCovid.dataProvinsi[index];
+                    return ProvinsiItem(dataProvinsi: data);
+                  },
                 ),
-                itemCount: dataCovid.dataProvinsi.length,
-                itemBuilder: (context, index) {
-                  final data = dataCovid.dataProvinsi[index];
-                  return ProvinsiItem(dataProvinsi: data);
-                },
               );
             }
             ;
