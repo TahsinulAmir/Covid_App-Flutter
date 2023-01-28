@@ -29,96 +29,76 @@ class DetailProvinsi extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Card(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 50),
-                    child: Column(
-                      children: [
-                        Text(
-                          provinsi.jumlahKasus.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.red),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Jumlah Kasus")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Card(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 50),
-                    child: Column(
-                      children: [
-                        Text(
-                          provinsi.jumlahSembuh.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.green),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Jumlah Sembuh")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Card(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 50),
-                    child: Column(
-                      children: [
-                        Text(
-                          provinsi.jumlahMeninggal.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.orange),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Jumlah Meninggal")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Card(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 50),
-                    child: Column(
-                      children: [
-                        Text(
-                          provinsi.jumlahDirawat.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.blue),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Jumlah Dirawat")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
+          RowGrid(),
+          RowGrid(),
         ],
       ),
+    );
+  }
+}
+
+class RowGrid extends StatelessWidget {
+  RowGrid({
+    Key? key,
+    required this.jumlahKasus1,
+    required this.jumlahKasus2,
+    required this.namaKasus1,
+    required this.namaKasus2,
+    required this.color1,
+    required this.color2,
+  }) : super(key: key);
+  String jumlahKasus1;
+  String jumlahKasus2;
+  String namaKasus1;
+  String namaKasus2;
+  Color color1;
+  Color color2;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Card(
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 50),
+              child: Column(
+                children: [
+                  Text(
+                    jumlahKasus1,
+                    style: TextStyle(fontSize: 25, color: color1),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(namaKasus1)
+                ],
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Card(
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 50),
+              child: Column(
+                children: [
+                  Text(
+                    jumlahKasus2,
+                    style: TextStyle(fontSize: 25, color: color2),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(namaKasus2)
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
